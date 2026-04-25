@@ -67,38 +67,19 @@ Skills fit is weighted more (60%) because skills gaps are slow to fix. Interest 
 
 ---
 
-## 📥 Sample Input
+## 📸 Sample Input & Output
 
-```
-We are looking for a Senior Backend Engineer with 5+ years of experience.
-Strong proficiency in Python and FastAPI required. Deep experience with AWS
-(EC2, S3, Lambda), PostgreSQL, and Redis. Hands-on knowledge of Docker and
-Kubernetes. Must have experience with CI/CD pipelines (GitHub Actions).
-Nice to have: Kafka, Terraform, fintech experience. Remote-first, immediate joiners preferred.
-```
+### 📥 Input — Job Description
+![Step 1 - Parse JD](screenshots/Homepage.png)
 
-## 📤 Sample Output
-
-| Rank | Candidate | Match | Interest | Final |
-|------|-----------|-------|----------|-------|
-| #1 | Arjun Sharma | 85% | 90% | 87 |
-| #2 | Priya Patel | 78% | 75% | 77 |
-| #3 | Rahul Verma | 70% | 65% | 68 |
-| #4 | Sneha Iyer | 60% | 55% | 58 |
-| #5 | Farhan Qureshi | 45% | 70% | 55 |
-| #6 | Gurpreet Singh | 40% | 30% | 36 |
-
-**AI Recommendation:**
-> Arjun Sharma should be interviewed immediately — strong Python/AWS match and expressed immediate availability. Keep Priya Patel as a strong backup with solid fundamentals. Watch Farhan Qureshi's missing Kubernetes experience as a potential risk despite high interest.
-
----
-
-## 📸 Screenshots
-
-![Step 1 - Parse JD](screenshots/parse.png)
+### 📤 Output — Matched Candidates
 ![Step 2 - Candidates](screenshots/candidates.png)
-![Step 3 - Outreach](screenshots/outreach.png)
-![Step 4 - Shortlist](screenshots/shortlist.png)
+
+### 📤 Output — Outreach Conversations
+![Step 3 - Outreach](screenshots/candidates_chat.png)
+
+### 📤 Output — Final Ranked Shortlist
+![Step 4 - Shortlist](screenshots/candidates_ranking.png)
 
 ---
 
@@ -177,7 +158,7 @@ ai-talent-scout/
 
 ## 🙋 Author
 
-Made by **[Your Name]**  
+Made by **Pooja Saini**  
 [GitHub](https://github.com/Pooja389)
 
 ---
