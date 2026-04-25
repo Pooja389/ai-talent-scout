@@ -1,0 +1,187 @@
+# 🤖 AI Talent Scout Agent
+
+An intelligent recruitment automation tool that simulates the full hiring pipeline — from parsing a job description to generating a ranked candidate shortlist — powered by **Groq's free LLaMA API**.
+
+---
+
+## 🎥 Demo Video
+
+> [Click here to watch the 4-minute walkthrough](https://your-demo-video-link.com)
+
+
+## 🚀 What It Does
+
+1. **Parse JD** — Paste any job description and AI extracts role, skills, must-haves, and nice-to-haves
+2. **Discover Candidates** — AI generates 6 realistic candidate profiles and scores each against the JD
+3. **Outreach Simulation** — Simulates LinkedIn-style conversations to gauge candidate interest
+4. **Ranked Shortlist** — Combines match score + interest score into a final ranking with an AI recruiter recommendation
+
+---
+
+## 🏗️ Architecture
+
+```
+User (Browser)
+     │
+     ▼
+index.html  ──────────────────────────────────────────┐
+(Vanilla JS)                                          │
+     │  fetch() POST requests                         │
+     ▼                                                │
+Flask Backend (app.py)                                │
+     │                                                │
+     ├── /parse_jd           → Groq LLaMA API ────────┤
+     ├── /discover_candidates → Groq LLaMA API ────────┤
+     ├── /run_outreach        → Groq LLaMA API ────────┤
+     └── /build_shortlist     → Python (formula) + Groq─┘
+```
+
+**How it flows:**
+- The frontend is a single HTML page that sends data step by step to Flask
+- Flask sends structured prompts to Groq's LLaMA 3.3 70B model
+- All AI responses come back as JSON, parsed and displayed in the UI
+- No database — all state lives in the browser between steps
+
+---
+
+## 📊 Scoring Logic
+
+### Match Score (0–100)
+AI compares the candidate's skills, experience, and background against the JD requirements. Scored per candidate by the LLM with an explicit rationale.
+
+### Interest Score (0–100)
+Derived from a simulated outreach conversation. Higher scores reflect candidates who are actively looking, ask good questions, and respond enthusiastically.
+
+| Interest Level | Score Range |
+|----------------|-------------|
+| Very excited, actively looking | 80–100 |
+| Interested but has concerns | 60–79 |
+| Lukewarm, not actively searching | 40–59 |
+| Politely uninterested | 0–39 |
+
+### Final Score Formula
+```
+Final Score = (Match Score × 0.6) + (Interest Score × 0.4)
+```
+Skills fit is weighted more (60%) because skills gaps are slow to fix. Interest still counts (40%) because a disengaged candidate wastes everyone's time.
+
+---
+
+## 📥 Sample Input
+
+```
+We are looking for a Senior Backend Engineer with 5+ years of experience.
+Strong proficiency in Python and FastAPI required. Deep experience with AWS
+(EC2, S3, Lambda), PostgreSQL, and Redis. Hands-on knowledge of Docker and
+Kubernetes. Must have experience with CI/CD pipelines (GitHub Actions).
+Nice to have: Kafka, Terraform, fintech experience. Remote-first, immediate joiners preferred.
+```
+
+## 📤 Sample Output
+
+| Rank | Candidate | Match | Interest | Final |
+|------|-----------|-------|----------|-------|
+| #1 | Arjun Sharma | 85% | 90% | 87 |
+| #2 | Priya Patel | 78% | 75% | 77 |
+| #3 | Rahul Verma | 70% | 65% | 68 |
+| #4 | Sneha Iyer | 60% | 55% | 58 |
+| #5 | Farhan Qureshi | 45% | 70% | 55 |
+| #6 | Gurpreet Singh | 40% | 30% | 36 |
+
+**AI Recommendation:**
+> Arjun Sharma should be interviewed immediately — strong Python/AWS match and expressed immediate availability. Keep Priya Patel as a strong backup with solid fundamentals. Watch Farhan Qureshi's missing Kubernetes experience as a potential risk despite high interest.
+
+---
+
+## 📸 Screenshots
+
+![Step 1 - Parse JD](screenshots/parse.png)
+![Step 2 - Candidates](screenshots/candidates.png)
+![Step 3 - Outreach](screenshots/outreach.png)
+![Step 4 - Shortlist](screenshots/shortlist.png)
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend** — Python, Flask
+- **AI** — Groq API (LLaMA 3.3 70B) — completely free
+- **Frontend** — Vanilla HTML, CSS, JavaScript (single page)
+
+---
+
+---
+
+## Run locally with clear setup instruction below
+
+## ⚙️ Local Setup
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/Pooja389/ai-talent-scout.git
+cd ai-talent-scout
+```
+
+### 2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Get your free Groq API key
+Go to [https://console.groq.com](https://console.groq.com) → API Keys → Create key (no credit card needed)
+
+### 4. Create a `.env` file
+```
+GROQ_API_KEY=your_key_here
+```
+
+### 5. Run the app
+```bash
+python app.py
+```
+
+### 6. Open in browser
+```
+http://localhost:5000
+```
+
+---
+
+## 📁 Project Structure
+
+```
+ai-talent-scout/
+├── app.py              # Flask backend — all API routes and AI logic
+├── templates/
+│   └── index.html      # Frontend UI (single page)
+├── screenshots/        # App screenshots for README
+├── .env                # Your Groq API key (never commit this)
+├── .gitignore
+├── requirements.txt    # Python dependencies
+└── README.md
+```
+
+---
+
+## 🔌 API Routes
+
+| Route | Method | Description |
+|-------|--------|-------------|
+| `/` | GET | Serves the main UI |
+| `/parse_jd` | POST | Extracts structured data from a job description |
+| `/discover_candidates` | POST | Generates and scores 6 candidate profiles |
+| `/run_outreach` | POST | Simulates recruiter-candidate conversations |
+| `/build_shortlist` | POST | Ranks candidates and generates recommendation |
+
+---
+
+## 🙋 Author
+
+Made by **[Your Name]**  
+[GitHub](https://github.com/Pooja389)
+
+---
+
+## 📄 License
+
+MIT License — free to use and modify
