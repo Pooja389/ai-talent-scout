@@ -8,6 +8,8 @@ An intelligent recruitment automation tool that simulates the full hiring pipeli
 
 > [Click here to watch the 4-minute walkthrough](https://youtu.be/3YtNG2TbLSw)
 
+## 🚀 Live Demo
+> [Click here to see live demo](https://ai-talent-scout-awh8.onrender.com)
 
 ## 🚀 What It Does
 
