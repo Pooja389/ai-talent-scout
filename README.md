@@ -6,7 +6,7 @@ An intelligent recruitment automation tool that simulates the full hiring pipeli
 
 ## 🎥 Demo Video
 
-> [Click here to watch the 4-minute walkthrough](https://your-demo-video-link.com)
+> [Click here to watch the 4-minute walkthrough](https://youtu.be/3YtNG2TbLSw)
 
 
 ## 🚀 What It Does
