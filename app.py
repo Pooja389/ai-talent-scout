@@ -359,7 +359,7 @@ def build_shortlist():
         match_score    = candidate.get("match_score", 0)
         interest_score = outreach.get(idx, {}).get("interest_score", 0)
 
-        # THE MAIN FORMULA — pure Python, no AI needed here
+        # THE MAIN FORMULA
         final_score = round((match_score * 0.6) + (interest_score * 0.4))
 
         candidate["interest_score"] = interest_score
@@ -372,7 +372,7 @@ def build_shortlist():
         reverse=True
     )
 
-    # ── Ask AI to write a recruiter recommendation ──────────────────
+    # ── Asking AI to write a recruiter recommendation ──────────────────
     rec_prompt = """You are a senior technical recruiter.
 Given this ranked candidate shortlist, write a direct 3-sentence action plan:
 1. Who to interview immediately and exactly why
