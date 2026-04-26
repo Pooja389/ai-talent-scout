@@ -102,26 +102,30 @@ Skills fit is weighted more (60%) because skills gaps are slow to fix. Interest 
 git clone https://github.com/Pooja389/ai-talent-scout.git
 cd ai-talent-scout
 ```
-
-### 2. Install dependencies
+### 2. Create and activate virtual environment
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+### 3. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Get your free Groq API key
+### 4. Get your free Groq API key
 Go to [https://console.groq.com](https://console.groq.com) → API Keys → Create key (no credit card needed)
 
-### 4. Create a `.env` file
+### 5. Create a `.env` file
 ```
 GROQ_API_KEY=your_key_here
 ```
 
-### 5. Run the app
+### 6. Run the app
 ```bash
 python app.py
 ```
 
-### 6. Open in browser
+### 7. Open in browser
 ```
 http://localhost:5000
 ```
