@@ -81,6 +81,9 @@ Skills fit is weighted more (60%) because skills gaps are slow to fix. Interest 
 ### 📤 Output — Final Ranked Shortlist
 ![Step 4 - Shortlist](screenshots/candidates_ranking.png)
 
+### 📤 Output — AI summary
+![Step 5 - Shortlist](screenshots/ai_summary.png)
+
 ---
 
 ## 🛠️ Tech Stack
